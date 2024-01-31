@@ -3,7 +3,7 @@ import mysql.connector
 from IPython.display import display
 
 def run_query(query, db_config):
-        with mysql.connector.connect(**db_config) as cnx:
+    with mysql.connector.connect(**db_config) as cnx:
         with cnx.cursor() as cursor:
             cursor.execute(query)
             # For SELECT queries, fetch the results and return a DataFrame
