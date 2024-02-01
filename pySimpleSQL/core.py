@@ -39,7 +39,6 @@ def display_library_documentation():
       #### Inputs
       - **query**: A string containing the SQL query or queries to be executed.
     """
-
     display(Markdown(documentation_md))
 
 
