@@ -1,6 +1,7 @@
 import unittest
 from unittest.mock import patch
-import pySimpleSQL  # Replace with the actual name of your library module
+
+from ..pySimpleSQL import core
 
 class TestDatabaseFunctions(unittest.TestCase):
 
@@ -11,7 +12,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         mock_getpass.return_value = 'test_password'
         mock_input.side_effect = ['test_user', 'test_host', 'test_db']
 
-        pySimpleSQL.setup_database()
+        core.setup_database()
 
         expected_config = {
             'user': 'sql11681093',
@@ -19,7 +20,7 @@ class TestDatabaseFunctions(unittest.TestCase):
             'host': 'sql11.freesqldatabase.com',
             'database': 'sql11681093',
         }
-        self.assertEqual(pySimpleSQL.get_db_config(), expected_config)
+        self.assertEqual(core.get_db_config(), expected_config)
 
     def test_set_db_config(self):
         test_config = {
@@ -28,8 +29,8 @@ class TestDatabaseFunctions(unittest.TestCase):
             'host': 'sql11.freesqldatabase.com',
             'database': 'sql11681093',
         }
-        pySimpleSQL.set_db_config(test_config)
-        self.assertEqual(pySimpleSQL.get_db_config(), test_config)
+        core.set_db_config(test_config)
+        self.assertEqual(core.get_db_config(), test_config)
 
 # Add more tests as needed
 
